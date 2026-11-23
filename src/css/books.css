@@ -1,0 +1,370 @@
+/*
+  Значення взяті з макету Figma (Booksy, секція "Category Filters"):
+  шрифт Rubik, кольори з UI Kit, відступи й сітка для 375 / 768 / 1440.
+  Шрифт Rubik підключається в загальних стилях проєкту.
+*/
+.books {
+  --books-bg: #fceee6;
+  --books-text: #0b0500;
+  --books-bamboo: #e15d05;
+  --books-bamboo-dark: #b44a04;
+  --books-bamboo-light: #ea8d50;
+  --books-neutral-lighter: #dad9d8;
+  --books-overlay-5: rgba(11, 5, 0, 0.05);
+  --books-overlay-10: rgba(11, 5, 0, 0.1);
+  --books-overlay-15: rgba(11, 5, 0, 0.15);
+
+  padding: 32px 0;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+  color: var(--books-text);
+  background-color: var(--books-bg);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.books-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.books-layout {
+  display: grid;
+  gap: 24px;
+}
+
+/* ---------- Заголовок, лічильник, фільтр ---------- */
+
+.books-side {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.books-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.books-count {
+  margin: 0;
+  font-size: 14px;
+}
+
+.books-filter {
+  position: relative;
+  grid-column: 1 / -1;
+}
+
+/* Кнопка-випадайка: mobile і tablet */
+.books-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 18px;
+  text-align: left;
+  color: var(--books-text);
+  background-color: var(--books-overlay-5);
+  border: 1px solid var(--books-overlay-15);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.books-filter-toggle:hover,
+.books-filter-toggle:focus-visible {
+  background-color: var(--books-overlay-10);
+}
+
+.books-filter-toggle span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.books-filter-icon {
+  flex-shrink: 0;
+  transition: transform 250ms ease;
+}
+
+.books-filter-toggle[aria-expanded='true'] .books-filter-icon {
+  transform: rotate(180deg);
+}
+
+.books-filter-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-height: 322px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  background:
+    linear-gradient(var(--books-overlay-5), var(--books-overlay-5)),
+    var(--books-bg);
+  border: 1px solid var(--books-overlay-15);
+  border-radius: 4px;
+}
+
+.books-filter.is-open .books-filter-list {
+  display: block;
+}
+
+.books-filter-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  color: var(--books-text);
+  background-color: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.books-filter-btn:hover,
+.books-filter-btn:focus-visible {
+  background-color: var(--books-overlay-10);
+}
+
+.books-filter-btn[aria-pressed='true'] {
+  background-color: var(--books-overlay-5);
+}
+
+/* ---------- Список книг ---------- */
+
+.books-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: opacity 250ms ease;
+}
+
+.books-list.is-loading {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.books-message {
+  grid-column: 1 / -1;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.book-card-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 199 / 283;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-card-info {
+  display: flex;
+  gap: 16px;
+}
+
+.book-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.book-card-title {
+  margin: 0;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-card-author {
+  margin: 0;
+  font-size: 14px;
+}
+
+.book-card-price {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Secondary button з UI Kit */
+.book-card-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: auto;
+  padding: 8px 20px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--books-text);
+  background-color: transparent;
+  border: 1px solid var(--books-text);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.book-card-btn:hover,
+.book-card-btn:focus-visible {
+  background-color: var(--books-bamboo-light);
+}
+
+.book-card-btn:active {
+  background-color: var(--books-neutral-lighter);
+}
+
+/* Primary button з UI Kit */
+.books-more {
+  display: block;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 12px 24px;
+  font: inherit;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: var(--books-bamboo);
+  border: 1px solid var(--books-bamboo);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease;
+}
+
+.books-more:hover,
+.books-more:focus-visible {
+  background-color: var(--books-text);
+  border-color: var(--books-text);
+}
+
+.books-more:active {
+  background-color: var(--books-bamboo-dark);
+  border-color: var(--books-bamboo-dark);
+}
+
+.books-more[hidden] {
+  display: none;
+}
+
+/* ---------- Tablet: 768px ---------- */
+
+@media (min-width: 768px) {
+  .books-container {
+    padding: 0 32px;
+  }
+
+  .books-layout {
+    gap: 32px;
+  }
+
+  .books-side {
+    grid-template-columns: 1fr auto 249px;
+  }
+
+  .books-filter {
+    grid-column: auto;
+  }
+
+  .books-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .books-more {
+    width: 342px;
+  }
+}
+
+/* ---------- Desktop: 1440px ---------- */
+
+@media (min-width: 1440px) {
+  .books-container {
+    padding: 0 64px;
+  }
+
+  .books-layout {
+    grid-template-columns: 308px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .books-side {
+    grid-template-columns: 1fr auto;
+  }
+
+  .books-filter {
+    grid-column: 1 / -1;
+  }
+
+  /* На десктопі фільтр — звичайний список, кнопка-випадайка не потрібна */
+  .books-filter-toggle {
+    display: none;
+  }
+
+  .books-filter-list {
+    display: block;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    background: none;
+    border: 0;
+  }
+
+  .books-filter-btn {
+    padding: 8px 0;
+    font-size: 18px;
+    border-radius: 0;
+  }
+
+  .books-filter-btn:hover,
+  .books-filter-btn:focus-visible {
+    color: var(--books-bamboo);
+    background-color: transparent;
+  }
+
+  .books-filter-btn[aria-pressed='true'] {
+    color: var(--books-bamboo);
+    background-color: transparent;
+  }
+
+  .books-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
