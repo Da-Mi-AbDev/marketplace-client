@@ -1,5 +1,5 @@
 {
-  "name": "web-team-project-template",
+  "name": "marketplace-client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -14,9 +14,13 @@
     "postcss-sort-media-queries": "^6.7.1",
     "vite": "^8.3.2"
   },
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "accordion-js": "^4.0.0",
+    "axios": "^1.21.1",
+    "izitoast": "^1.4.0",
+    "swiper": "^14.4.0",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
   }
