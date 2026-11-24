@@ -36,3 +36,10 @@ h2 {
 section {
     padding-block: 64px;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
