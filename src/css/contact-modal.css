@@ -67,13 +67,7 @@
 .contact-modal__form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-@media screen and (min-width: 1440px) {
-  .contact-modal__form {
-    gap: 24px;
-  }
+  gap: 24px;
 }
 
 .form-field {
@@ -142,6 +136,9 @@
   min-height: 18px;
   font-size: 13px;
   color: var(--color-error-red, #ad0000);
+}
+.form-field__error:empty {
+  display: none;
 }
 
 .contact-modal__submit {
