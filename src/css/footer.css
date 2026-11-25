@@ -1,0 +1,142 @@
+.footer {
+  color: #0b0500;
+  background-color: #ea8d50;
+}
+
+.footer-container {
+  padding-top: 80px;
+  padding-bottom: 72px;
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  display: inline-flex;
+}
+
+.footer-logo-icon {
+  display: block;
+  width: 84px;
+  height: 36px;
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 40px 0 0;
+}
+
+.footer-nav-list a {
+  transition: opacity 150ms ease;
+}
+
+.footer-nav-list a:hover,
+.footer-nav-list a:focus-visible {
+  opacity: 0.7;
+}
+
+.footer-subscribe-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-form {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-input {
+  width: 280px;
+  outline: transparent;
+  background-color: transparent;
+  transition: outline-color 150ms ease;
+}
+
+.footer-input::placeholder {
+  color: #0b0500;
+  opacity: 1;
+}
+
+.footer-input:focus {
+  outline: 2px solid #0b0500;
+  outline-offset: 2px;
+}
+
+.footer-button {
+  min-width: 108px;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.footer-input,
+.footer-button {
+  height: 48px;
+  border: 1px solid #0b0500;
+  border-radius: 4px;
+  color: #0b0500;
+}
+
+.footer-input {
+  padding: 12px 16px;
+}
+
+.footer-button {
+  padding: 12px 24px;
+  background-color: transparent;
+}
+
+.footer-button:hover,
+.footer-button:focus-visible {
+  color: #ea8d50;
+  background-color: #0b0500;
+}
+
+.footer-required {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer-copyright {
+  margin: 124px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .footer-container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .footer-subscribe {
+    width: 100%;
+  }
+
+  .footer-input {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .footer-button {
+    flex-shrink: 0;
+  }
+
+  .footer-copyright {
+    margin-top: 64px;
+  }
+}
