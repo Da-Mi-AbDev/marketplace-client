@@ -48,3 +48,13 @@ section {
 html {
   scroll-behavior: smooth;
 }
+.header-nav-link,
+.mobile-menu-link{
+    transition: opacity 150ms ease;
+  }
+.header-nav-link:hover,
+.header-nav-link:focus-visible,
+.mobile-menu-link:hover,
+.mobile-menu-link:focus-visible{
+    opacity: 0.7;
+  }
