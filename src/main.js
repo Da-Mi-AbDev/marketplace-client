@@ -1,7 +1,7 @@
-import './js/hero.js';
-import './js/events.js';
-import './js/books.js';
+import './js/hero';
+import './js/events';
+import './js/books';
 
-import { initMobileMenu } from './js/mobile-menu.js';
+import { initMobileMenu } from './js/mobile-menu';
 
 initMobileMenu();
