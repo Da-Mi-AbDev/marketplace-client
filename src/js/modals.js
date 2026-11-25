@@ -24,10 +24,11 @@ export function initModals() {
   if (!bookModal || !contactModal) return;
 
   let activeModal = null;
+  let bookAccordion = null;
 
   const accordionEl = bookModal.querySelector('[data-book-accordion]');
   if (accordionEl) {
-    new Accordion(accordionEl, {
+    bookAccordion = new Accordion(accordionEl, {
       duration: 250,
       showMultiple: false,
     });
@@ -51,6 +52,11 @@ export function initModals() {
     if (!modal) return;
     modal.classList.add('is-hidden');
     modal.setAttribute('aria-hidden', 'true');
+
+    if (modal === bookModal && bookAccordion) {
+      bookAccordion.closeAll();
+    }
+
     if (activeModal === modal) activeModal = null;
     syncBodyScroll();
   }
@@ -86,6 +92,15 @@ export function initModals() {
   const feedbackEl = bookModal.querySelector('[data-book-feedback]');
 
   let currentBookId = null;
+  let requestCounter = 0;
+  let isFetchingBook = false;
+
+  function setBookLoading(isLoading) {
+    bookModal.classList.toggle('is-loading', isLoading);
+    if (feedbackEl) {
+      feedbackEl.textContent = isLoading ? 'Завантаження...' : '';
+    }
+  }
 
   function getQuantity() {
     const parsed = parseInt(qtyInput.value, 10);
@@ -122,15 +137,24 @@ export function initModals() {
 
   async function openBookModal(bookId) {
     if (!bookId) return;
+
+    if (isFetchingBook && currentBookId === bookId) return;
+
+    const currentRequestId = ++requestCounter;
+    isFetchingBook = true;
     currentBookId = bookId;
+
     qtyInput.value = '1';
-    if (feedbackEl) feedbackEl.textContent = '';
+    if (bookAccordion) {
+      bookAccordion.closeAll();
+    }
 
     if (detailsEl) detailsEl.textContent = DEFAULT_DETAILS_TEXT;
     if (shippingEl) shippingEl.textContent = DEFAULT_SHIPPING_TEXT;
     if (returnsEl) returnsEl.textContent = DEFAULT_RETURNS_TEXT;
 
     openModal(bookModal);
+    setBookLoading(true);
 
     try {
       const response = await fetch(
@@ -138,6 +162,8 @@ export function initModals() {
       );
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const book = await response.json();
+
+      if (currentRequestId !== requestCounter) return;
 
       const title = book.title || book.name || 'I will find you';
       const author = book.author || 'Harlan Coben';
@@ -162,9 +188,18 @@ export function initModals() {
         returnsEl.textContent = book.returns || DEFAULT_RETURNS_TEXT;
       }
     } catch (error) {
+      if (currentRequestId !== requestCounter) return;
       console.error('Book fetch error:', error);
       if (feedbackEl) {
         feedbackEl.textContent = 'Не вдалося завантажити дані про книгу.';
+      }
+    } finally {
+      if (currentRequestId === requestCounter) {
+        isFetchingBook = false;
+        bookModal.classList.remove('is-loading');
+        if (feedbackEl && feedbackEl.textContent === 'Завантаження...') {
+          feedbackEl.textContent = '';
+        }
       }
     }
   }
