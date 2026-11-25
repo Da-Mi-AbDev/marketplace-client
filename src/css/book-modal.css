@@ -443,8 +443,8 @@ body.modal-open {
     font-size: 16px;
   }
 }
+
 .book-ac .ac-panel {
-  display: block;
   overflow: hidden;
 }
 
@@ -452,8 +452,4 @@ body.modal-open {
   height: 0 !important;
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.book-ac.ac.is-active .ac-panel {
-  height: auto !important;
 }
