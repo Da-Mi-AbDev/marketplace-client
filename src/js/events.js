@@ -30,3 +30,10 @@ new Swiper('.events-swiper', {
     }
   }
 });
+const button = document.querySelector('.events-button');
+const contactModal = document.querySelector('[data-contact-modal]');
+
+button.addEventListener('click', () => {
+  contactModal.classList.remove('is-hidden');
+  contactModal.setAttribute('aria-hidden', 'false');
+});
