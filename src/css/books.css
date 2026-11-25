@@ -177,7 +177,7 @@
 .book-card-img {
   display: block;
   width: 100%;
-  max-width: 227px;
+  max-width: 343px;
   height: auto;
   aspect-ratio: 199 / 283;
   object-fit: cover;
@@ -291,6 +291,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .book-card-img {
+max-width: 340px;
+  }
   .books-more {
     width: 342px;
   }
@@ -346,4 +349,7 @@
   .books-list {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
+.book-card-img {
+max-width: 227px;
+  }
 }
