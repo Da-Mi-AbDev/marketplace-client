@@ -1,0 +1,75 @@
+<div class="modal-backdrop is-hidden" data-contact-modal aria-hidden="true">
+  <div
+    class="modal-window contact-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-modal-title"
+  >
+    <button
+      type="button"
+      class="modal-close-btn"
+      data-modal-close
+      aria-label="Close modal"
+    >
+      <svg class="modal-close-icon" width="16" height="16" aria-hidden="true">
+        <use href="./img/sprite.svg#x-close"></use>
+      </svg>
+    </button>
+
+    <div class="contact-modal__head">
+      <h2 class="contact-modal__title" id="contact-modal-title">Register</h2>
+      <p class="contact-modal__event" data-event-name>
+        Cozy Book Club — “The Midnight Library”
+      </p>
+    </div>
+
+    <form class="contact-modal__form" data-contact-form novalidate>
+      <div class="form-field">
+        <label class="form-field__label" for="contact-name">Name*</label>
+        <input
+          class="form-field__input"
+          id="contact-name"
+          name="name"
+          type="text"
+          placeholder="Ann"
+          required
+        />
+        <span class="form-field__error" data-error-for="name"></span>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label" for="contact-email">Email*</label>
+        <input
+          class="form-field__input"
+          id="contact-email"
+          name="email"
+          type="email"
+          placeholder="hello@booksy.com"
+          required
+        />
+        <span class="form-field__error" data-error-for="email"></span>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label" for="contact-message"> Message </label>
+        <textarea
+          class="form-field__textarea"
+          id="contact-message"
+          name="message"
+          placeholder="Type your message..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--primary contact-modal__submit">
+        Register
+      </button>
+
+      <p
+        class="contact-modal__status"
+        data-contact-status
+        role="status"
+        aria-live="polite"
+      ></p>
+    </form>
+  </div>
+</div>

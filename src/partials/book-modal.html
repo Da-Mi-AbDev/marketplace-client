@@ -1,0 +1,148 @@
+<div class="modal-backdrop is-hidden" data-book-modal aria-hidden="true">
+  <div
+    class="modal-window book-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="book-modal-title"
+  >
+    <button
+      type="button"
+      class="modal-close-btn"
+      data-modal-close
+      aria-label="Close modal"
+    >
+      <svg class="modal-close-icon" width="16" height="16" aria-hidden="true">
+        <use href="./img/sprite.svg#x-close"></use>
+      </svg>
+    </button>
+
+    <div class="book-modal__body">
+      <div class="book-modal__cover-wrap">
+        <img
+          class="book-modal__cover"
+          data-book-cover
+          src="https://placehold.co/309x467"
+          alt="Book cover"
+          width="309"
+          height="467"
+        />
+      </div>
+
+      <div class="book-modal__info">
+        <div class="book-modal__header">
+          <h2 class="book-modal__title" id="book-modal-title" data-book-title>
+            I will find you
+          </h2>
+          <p class="book-modal__author" data-book-author>Harlan Coben</p>
+          <p class="book-modal__price" data-book-price>$15</p>
+        </div>
+
+        <form class="book-modal__form" data-book-form>
+          <div class="book-modal__qty">
+            <button
+              type="button"
+              class="qty-btn"
+              data-qty-decrement
+              aria-label="Decrease quantity"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              class="qty-input"
+              name="quantity"
+              value="1"
+              min="1"
+              step="1"
+              aria-label="Book quantity"
+              data-qty-input
+            />
+            <button
+              type="button"
+              class="qty-btn"
+              data-qty-increment
+              aria-label="Increase quantity"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="book-modal__actions">
+            <button type="button" class="btn btn--primary" data-add-to-cart>
+              Add To Cart
+            </button>
+            <button type="submit" class="btn btn--secondary" data-buy-now>
+              Buy Now
+            </button>
+          </div>
+
+          <p
+            class="book-modal__feedback"
+            data-book-feedback
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+
+        <div class="accordion-container" data-book-accordion>
+          <div class="ac book-ac">
+            <h3 class="ac-header book-ac__header">
+              <button type="button" class="ac-trigger book-ac__trigger">
+                <span class="book-ac__label">Details</span>
+                <svg
+                  class="book-ac__arrow"
+                  width="14"
+                  height="8"
+                  aria-hidden="true"
+                >
+                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                </svg>
+              </button>
+            </h3>
+            <div class="ac-panel book-ac__panel">
+              <p class="ac-text book-ac__text" data-book-details></p>
+            </div>
+          </div>
+
+          <div class="ac book-ac">
+            <h3 class="ac-header book-ac__header">
+              <button type="button" class="ac-trigger book-ac__trigger">
+                <span class="book-ac__label">Shipping</span>
+                <svg
+                  class="book-ac__arrow"
+                  width="14"
+                  height="8"
+                  aria-hidden="true"
+                >
+                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                </svg>
+              </button>
+            </h3>
+            <div class="ac-panel book-ac__panel">
+              <p class="ac-text book-ac__text" data-book-shipping></p>
+            </div>
+          </div>
+
+          <div class="ac book-ac">
+            <h3 class="ac-header book-ac__header">
+              <button type="button" class="ac-trigger book-ac__trigger">
+                <span class="book-ac__label">Returns</span>
+                <svg
+                  class="book-ac__arrow"
+                  width="14"
+                  height="8"
+                  aria-hidden="true"
+                >
+                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                </svg>
+              </button>
+            </h3>
+            <div class="ac-panel book-ac__panel">
+              <p class="ac-text book-ac__text" data-book-returns></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
