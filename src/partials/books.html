@@ -1,10 +1,12 @@
+
 <section class="books" id="books">
-  <div class="books-container">
+  <div class="container">
     <h2 class="visually-hidden">Trending books</h2>
 
     <div class="books-layout">
       <div class="books-side">
         <h3 class="books-title">Books</h3>
+
         <p class="books-count" aria-live="polite">
           Showing <span data-books-shown>0</span> of
           <span data-books-total>0</span>
@@ -19,20 +21,14 @@
             data-books-toggle
           >
             <span data-books-toggle-label>Categories</span>
-            <!-- Іконку перенесіть у спільний svg-спрайт (ТЗ вимагає спрайт) -->
+
             <svg
               class="books-filter-icon"
               width="24"
               height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M6 9l6 6 6-6" />
+              <use href="./img/sprite.svg#chevron-down"></use>
             </svg>
           </button>
 
@@ -46,7 +42,13 @@
 
       <div class="books-content">
         <ul class="books-list" data-books-list></ul>
-        <button type="button" class="books-more" data-books-more hidden>
+
+        <button
+          type="button"
+          class="books-more"
+          data-books-more
+          hidden
+        >
           Show More
         </button>
       </div>
