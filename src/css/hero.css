@@ -55,6 +55,9 @@
   letter-spacing: -0.01em;
   color: #fff;
 }
+.hero-text-spring {
+  right: 80px;
+}
 
 .hero-button {
   position: absolute;
@@ -198,6 +201,10 @@
 
     font-size: 32px;
     line-height: 1.2;
+  }
+  .hero-text-sale,
+  .hero-text-spring {
+    right: 80px;
   }
 
   .hero-button {
