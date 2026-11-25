@@ -1,0 +1,227 @@
+
+.location {
+  background-color: #fceee6;
+  padding: 64px 0;
+}
+
+.location-container {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.location-content {
+  margin-bottom: 32px;
+}
+
+
+.location-label {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.location-title {
+  margin-bottom: 24px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.location-description {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.location-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.location-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+
+.location-contact-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.location-contact-title {
+  margin: 0 0 8px;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+
+.location-contact a,
+.location-contact p:not(.location-contact-title) {
+  color: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.location-map {
+  width: 100%;
+  height: 395px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.location-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(100%);
+}
+
+
+.location p,
+.location h2 {
+  margin-top: 0;
+}
+
+
+.location a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+
+
+.location,
+.location p,
+.location h2,
+.location a {
+  font-family: "Rubik", sans-serif;
+}
+
+.location-title {
+  margin: 0;
+}
+
+.location-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.location-label,
+.location-title,
+.location-description {
+  margin: 0;
+}
+
+
+.location-contact p {
+  margin-top: 0;
+}
+
+.location-contact p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .location-container {
+    max-width: 768px;
+    padding: 0 32px;
+      display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  }
+
+  .location-map {
+  grid-column: 1 / -1;
+}
+
+.location-title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.location-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.location {
+  padding: 64px 0;
+}
+
+.location-contacts {
+  margin-bottom: 80px;
+}
+
+.location-label {
+  margin-bottom: 16px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #0b0500;
+}
+}
+
+@media screen and (min-width: 1440px) {
+.location-container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 64px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 244px 738px;
+  column-gap: 80px;
+  row-gap: 80px;
+}
+
+  .location-map {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 738px;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.location-contacts {
+  margin-bottom: 0;
+}
+
+.location {
+  padding: 64px 0;
+  min-height: 1232px;
+}
+
+.location-label {
+  margin-bottom: 0;
+}
+
+.location-title {
+  margin-bottom: 8px;
+}
+}
